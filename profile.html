@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yizhu (Joy) Wang</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            font-size: 18px; /* Increased from 16px */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            padding: 40px 20px;
+        }
+
+        /* Highlighting styles */
+        .highlight {
+            color: #2980b9;
+            font-weight: bold;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            width: 300px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+
+        /* Photo Section */
+        .photo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 240px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .name {
+            font-size: 2.2em; /* Increased from 2em */
+            font-weight: normal;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .chinese-name {
+            font-family: 'KaiTi', '楷体', 'STKaiti', serif;
+            font-size: 1.4em;
+            color: #555;
+            margin-top: 5px;
+            font-weight: normal;
+        }
+
+        .title {
+            color: #666;
+            font-size: 1.2em; /* Increased from 1.1em */
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* Contact Section */
+        .contact-section h3 {
+            font-size: 1.4em; /* Increased from 1.3em */
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .contact-item {
+            margin-bottom: 12px;
+            font-size: 1.1em; /* Increased from 1em */
+        }
+
+        .contact-item strong {
+            color: #2c3e50;
+            display: inline-block;
+            width: 60px;
+        }
+
+        .contact-item a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Social Links */
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            margin-right: 15px;
+            margin-bottom: 8px;
+            font-size: 1.1em; /* Increased from 1em */
+        }
+
+        .social-link:hover {
+            text-decoration: underline;
+        }
+
+        .linkedin-link {
+            color: #0077b5;
+        }
+
+        .linkedin-link::before {
+            content: "💼";
+            margin-right: 8px;
+        }
+
+        .twitter-link {
+            color: #1da1f2;
+        }
+
+        .twitter-link::before {
+            content: "🐦";
+            margin-right: 8px;
+        }
+
+        /* News Section */
+        .news-section h3 {
+            font-size: 1.4em; /* Increased from 1.3em */
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .news-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            color: #95a5a6;
+            font-size: 1.05em; /* Increased from 0.95em */
+            margin-bottom: 5px;
+        }
+
+        .news-content {
+            font-size: 1.1em; /* Increased from 1em */
+            color: #555;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+        }
+
+        /* Navigation */
+        .nav {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+
+        .nav a {
+            color: #2980b9;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 1.2em; /* Increased from 1.1em */
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Self Introduction */
+        .self-intro {
+            text-align: justify;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-left: 3px solid #2980b9;
+        }
+
+        .self-intro h2 {
+            font-size: 1.8em; /* Increased from 1.6em */
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .self-intro p {
+            margin-bottom: 15px;
+            font-size: 1.15em; /* Increased from 1.05em */
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 1.8em; /* Increased from 1.6em */
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .section h3 {
+            font-size: 1.4em; /* Increased from 1.3em */
+            color: #34495e;
+            margin-bottom: 8px;
+            font-weight: normal;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.15em; /* Increased from 1.05em */
+        }
+
+        /* Education */
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .degree {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.15em; /* Increased from 1.05em */
+        }
+
+        .institution {
+            color: #7f8c8d;
+            font-style: italic;
+            font-size: 1.15em; /* Increased from 1.05em */
+        }
+
+        .date {
+            color: #95a5a6;
+            font-size: 1.1em; /* Increased from 1em */
+            float: right;
+        }
+
+        .gpa {
+            color: #666;
+            font-size: 1.1em; /* Increased from 1em */
+        }
+
+        .advisor {
+            color: #7f8c8d;
+            font-size: 1.1em; /* Increased from 1em */
+            margin-bottom: 5px;
+        }
+
+        /* Research Interests */
+        .research-interests {
+            margin-bottom: 30px;
+        }
+
+        .research-area {
+            margin-bottom: 15px;
+        }
+
+        .research-area h4 {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 1.2em; /* Increased from 1.1em */
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 25px;
+        }
+
+        .position {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.15em; /* Increased from 1.05em */
+        }
+
+        .experience-item ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .experience-item li {
+            margin-bottom: 5px;
+            text-align: justify;
+            font-size: 1.15em; /* Increased from 1.05em */
+        }
+
+        /* Publications */
+        .publication {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .pub-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.15em; /* Increased from 1.05em */
+        }
+
+        .pub-authors {
+            margin-bottom: 3px;
+            font-size: 1.15em; /* Increased from 1.05em */
+        }
+
+        .pub-venue {
+            color: #7f8c8d;
+            font-style: italic;
+            font-size: 1.15em; /* Increased from 1.05em */
+        }
+
+        .my-name {
+            font-weight: bold;
+        }
+
+        /* Skills */
+        .skills-category {
+            margin-bottom: 15px;
+            font-size: 1.15em; /* Increased from 1.05em */
+        }
+
+        .skills-category strong {
+            color: #2c3e50;
+        }
+
+        /* Awards */
+        .award-item {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .award-details {
+            flex: 1;
+        }
+
+        .award-date {
+            color: #95a5a6;
+            font-size: 1.1em; /* Increased from 1em */
+            margin-left: 20px;
+            white-space: nowrap;
+        }
+
+        .award-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.15em; /* Increased from 1.05em */
+        }
+
+        .award-institution {
+            color: #7f8c8d;
+            font-size: 1.1em; /* Increased from 1em */
+        }
+
+        /* Activities */
+        .activity-item {
+            margin-bottom: 15px;
+        }
+
+        .activity-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.15em; /* Increased from 1.05em */
+        }
+
+        .activity-org {
+            color: #7f8c8d;
+            font-size: 1.1em; /* Increased from 1em */
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #95a5a6;
+            font-size: 1.1em; /* Increased from 1em */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px 15px;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .profile-photo {
+                width: 150px;
+                height: 180px;
+            }
+
+            .nav a {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .date {
+                float: none;
+                display: block;
+                margin-top: 5px;
+            }
+
+            .award-item {
+                flex-direction: column;
+            }
+
+            .award-date {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+
+            .contact-item strong {
+                width: auto;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <!-- Photo Section -->
+            <div class="sidebar-section">
+                <div class="photo-section">
+                    <img src="profile.png" alt="Yizhu Wang" class="profile-photo">
+                    <div class="name">Yizhu (Joy) Wang</div>
+                    <div class="chinese-name">王逸竹</div>
+                    <div class="title">Undergraduate Student in Electronic Engineering</div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="sidebar-section">
+                <div class="contact-section">
+                    <h3>Contact</h3>
+                    <div class="contact-item">
+                        <strong>Email:</strong><br>
+                        <a href="mailto:yizhu-wa21@mails.tsinghua.edu.cn">yizhu-wa21@mails.tsinghua.edu.cn</a><br>
+                        <a href="mailto:joy4856wang@gmail.com">joy4856wang@gmail.com</a>
+                    </div>
+                    <!-- <div class="contact-item">
+                        <strong>Phone:</strong><br>
+                        <a href="tel:+14479022849">(+1) 447-902-2849</a>
+                    </div> -->
+                    <div class="contact-item">
+                        <strong>Address:</strong><br>
+                        <span class="highlight">Tsinghua University</span><br>
+                        Beijing, China
+                    </div>
+                    <div class="social-links">
+                        <a href="hhttps://www.linkedin.com/in/yizhu-wang-b738242a3/" class="social-link linkedin-link" target="_blank">
+                            LinkedIn
+                        </a>
+                        <a href="https://x.com/YizhuJoy" class="social-link twitter-link" target="_blank">
+                            X (Twitter)
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Section -->
+            <div class="sidebar-section">
+                <div class="news-section">
+                    <h3>News</h3>
+                    <div class="news-item">
+                        <div class="news-date">June 2025</div>
+                        <div class="news-content">I am going to start my work at <span class="highlight">UC Berkeley</span>!</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">May 2025</div>
+                        <div class="news-content">Our work at <span class="highlight">UIUC</span> got accepted at <span class="highlight">SOUPS 2025</span>: "Can You Walk Me Through It? Explainable SMS Phishing Detection using LLM-based Agents."</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">July 2024</div>
+                        <div class="news-content">Started research at <span class="highlight">UIUC</span> under <span class="highlight">Prof. Gang Wang</span></div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">Dec 2023</div>
+                        <div class="news-content">Awarded <span class="highlight">Tsinghua University</span> Zheng Gang Alumni Scholarship</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">Aug 2023</div>
+                        <div class="news-content">I am going to start my new exchange program journey at <span class="highlight">UBC</span> in Vancouver!</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Navigation -->
+            <nav class="nav">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#publications">Publications</a>
+                <a href="#awards">Awards</a>
+            </nav>
+
+            <!-- Self Introduction -->
+            <section class="self-intro" id="about">
+                <h2>About Me</h2>
+                <p>I am a senior undergraduate student at <span class="highlight">Tsinghua University</span> majoring in Electronic Engineering. I am interested in developing robust defense mechanisms against emerging AI security threats, particularly in Large Language Model (LLM) security.</p>
+
+                <p>Currently, I work as a research assistant at <span class="highlight">UC Berkeley</span>, collaborating with <span class="highlight">Sizhe Chen</span> under the guidance of <span class="highlight">Prof. David Wagner</span>. My current project involves building deployable defenses against prompt injection attacks targeting LLMs.</p>
+
+                <p>I had a great six-month research experience at the <span class="highlight">University of Illinois Urbana-Champaign (UIUC)</span>, where I worked on developing anti-phishing LLM agents and exploring human factors in phishing attacks under the supervision of <span class="highlight">Prof. Gang Wang</span>. Prior to this, I conducted research with <span class="highlight">Prof. Yong Li</span> at <span class="highlight">Tsinghua University</span>.</p>
+            
+                <p>I aim to contribute to the development of safer and more trustworthy AI systems for real-world deployment, bridging the gap between theoretical security research and practical applications.</p>
+            </section>
+
+            <!-- Education -->
+            <section class="section" id="education">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <div class="degree">BEng in Electronic Engineering</div>
+                    <div class="institution"><span class="highlight-university">Tsinghua University</span>, Beijing, China</div>
+                    <div class="date">Sep. 2021 - Jun. 2026 (Expected)</div>
+                    <!--<div class="gpa">GPA: 3.7/4.0</div>-->
+                </div>
+                <div class="education-item">
+                    <div class="degree">Undergraduate Exchange in Computer Science</div>
+                    <div class="institution"><span class="highlight-university">University of British Columbia (UBC)</span>, Vancouver, Canada</div>
+                    <div class="date">Sep. 2023 - Dec. 2023</div>
+                    <!--<div class="gpa">Major GPA: 91/100</div>-->
+                </div>
+                <div class="education-item">
+                    <div class="degree">Research Assistant</div>
+                    <div class="institution"><span class="highlight-university">University of Illinois Urbana-Champaign (UIUC)</span>, IL, USA</div>
+                    <div class="date">Jul. 2024 - Jan. 2025</div>
+                    <div class="advisor">Advisor: <span class="highlight-professor">Prof. Gang Wang</span></div>
+                </div>
+                <div class="education-item">
+                    <div class="degree">Research Assistant</div>
+                    <div class="institution"><span class="highlight-university">University of California Berkeley</span>, CA, USA</div>
+                    <div class="date">June. 2025 - Sep. 2025 (Expected)</div>
+                    <div class="advisor">Advisor: <span class="highlight-professor">Prof. David Wagner</span></div>
+                </div>
+            </section>
+
+            <!-- Publications -->
+            <section class="section" id="publications">
+                <h2>Publications</h2>
+                
+                <div class="publication">
+                    <div class="pub-title">"Can You Walk Me Through It? Explainable SMS Phishing Detection using LLM-based Agents."</div>
+                    <div class="pub-authors"><span class="my-name">Yizhu Wang</span>, Haoyu Zhai, Chenkai Wang, Qingying Hao, Nick A. Cohen, Roopa Foulger, Jonathan A. Handler, <span class="highlight-professor">Gang Wang</span>.</div>
+                    <div class="pub-venue">Proceedings of the 21st Symposium on Usable Privacy and Security (<span class="highlight-course">SOUPS</span>), Seattle, WA, August 2025</div>
+                </div>
+
+                <!-- <div class="publication">
+                    <div class="pub-title">"Utility-preserved Defense Against Prompt Injection Attacks towards LLMs."</div>
+                    <div class="pub-authors">Sizhe Chen, <span class="my-name">Yizhu Wang</span>, Nicholas Carlini, Chawin Sitawarin, David Wagner.</div>
+                    <div class="pub-venue">Under Review</div>
+                </div> -->
+            </section>
+
+            <!-- Awards and Honors -->
+            <section class="section" id="awards">
+                <h2>Awards and Honors</h2>
+                
+                <!-- <div class="award-item">
+                    <div class="award-details">
+                        <div class="award-title">Honorable Prize in The Mathematical Contest in Modeling</div>
+                        <div class="award-institution"><span class="highlight-university">Tsinghua University</span>, Beijing</div>
+                    </div>
+                    <div class="award-date">Feb. 2024</div>
+                </div> -->
+
+                <div class="award-item">
+                    <div class="award-details">
+                        <div class="award-title"><span class="highlight-university">Tsinghua University</span> Zheng Gang Alumni Scholarship</div>
+                        <div class="award-institution"><span class="highlight-university">Tsinghua University</span>, Beijing</div>
+                    </div>
+                    <div class="award-date">Dec. 2023</div>
+                </div>
+
+                <div class="award-item">
+                    <div class="award-details">
+                        <div class="award-title">Excellent Science and Technology Association Backbone (15/280)</div>
+                        <div class="award-institution"><span class="highlight-university">Tsinghua University</span>, Beijing</div>
+                    </div>
+                    <div class="award-date">Oct. 2023</div>
+                </div>
+
+                <div class="award-item">
+                    <div class="award-details">
+                        <div class="award-title">Social Work Excellence Award (<10/280)</div>
+                        <div class="award-institution"><span class="highlight-university">Tsinghua University</span>, Beijing</div>
+                    </div>
+                    <div class="award-date">Nov. 2022</div>
+                </div>
+
+                <div class="award-item">
+                    <div class="award-details">
+                        <div class="award-title">Freshman Scholarship (<10/280)</div>
+                        <div class="award-institution"><span class="highlight-university">Tsinghua University</span>, Beijing</div>
+                    </div>
+                    <div class="award-date">Dec. 2021</div>
+                </div>
+
+                <div class="award-item">
+                    <div class="award-details">
+                        <div class="award-title">No.9 (9/50) in <span class="highlight-university">Tsinghua University</span> Electronic Design Competition</div>
+                        <div class="award-institution"><span class="highlight-university">Tsinghua University</span>, Beijing</div>
+                    </div>
+                    <div class="award-date">Dec. 2021</div>
+                </div>
+
+                <div class="award-item">
+                    <div class="award-details">
+                        <div class="award-title">No.10 (10/60) in THU Smart Car Contest of "Chip Motion Plan"</div>
+                        <div class="award-institution"><span class="highlight-university">Tsinghua University</span>, Beijing</div>
+                    </div>
+                    <div class="award-date">Dec. 2021</div>
+                </div>
+            </section>
+
+            <!-- Activities -->
+            <section class="section">
+                <h2>Professional Activities</h2>
+                
+                <div class="activity-item">
+                    <div class="activity-title">Teaching Assistant</div>
+                    <div class="activity-org"><span class="highlight-course">Synthetical Practice of Electronic System Design</span>, <span class="highlight-university">Tsinghua University</span></div>
+                    <div class="date">Jun. 2023 - Oct. 2023</div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-title">Vice Minister</div>
+                    <div class="activity-org">Hardware Department of Student Science Association, <span class="highlight-university">Tsinghua University</span></div>
+                    <div class="date">Jun. 2022 - Jun. 2024</div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>Last updated: June 2025</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // Simple smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
