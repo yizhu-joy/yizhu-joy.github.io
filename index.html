@@ -72,7 +72,7 @@
             line-height: 1.6;
             color: #333;
             background: #fff;
-            font-size: 15px;
+            font-size: 18px;
         }
 
         
@@ -387,29 +387,111 @@
 
         /* Publications */
         .publication {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             text-align: justify;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 8px;
+            border-left: 4px solid #2980b9;
         }
 
         .pub-title {
             font-weight: bold;
             color: #2c3e50;
-            font-size: 1.15em;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            line-height: 1.3;
         }
 
         .pub-authors {
-            margin-bottom: 3px;
-            font-size: 1.15em;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+            color: #333;
         }
 
         .pub-venue {
             color: #7f8c8d;
             font-style: italic;
-            font-size: 1.15em;
+            font-size: 1.1em;
+            margin-bottom: 15px;
         }
 
         .my-name {
             font-weight: bold;
+        }
+
+        /* Publication Buttons - Updated with more subtle colors */
+        .pub-buttons {
+            margin-top: 15px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        /* Paper Button - Subtle gray */
+        .button[href*="paper"], .button:first-child {
+            background: #c5ddf6;
+            color: #08090a;
+            border: 1px solid #dee2e6;
+        }
+
+        .button[href*="paper"]:hover, .button:first-child:hover {
+            background: #97adc2;
+            border-color: #adb5bd;
+            color: #343a40;
+        }
+
+        .button[href*="paper"]::after, .button:first-child::after {
+            content: "📄";
+            margin-left: 8px;
+            font-size: 1.1em;
+        }
+
+        /* Code Button - Subtle dark gray */
+        .button[href*="code"], .button:last-child {
+            background: #c5ddf6;
+            color: #08090a;
+            border: 1px solid #dee2e6;
+        }
+
+        .button[href*="code"]:hover, .button:last-child:hover {
+            background: #97adc2;
+            border-color: #adb5bd;
+            color: #343a40;
+        }
+
+        .button[href*="code"]::after, .button:last-child::after {
+            content: "⚡";
+            margin-left: 8px;
+            font-size: 1.1em;
+        }
+
+        /* Alternative styling for unavailable links */
+        .button[href="#"] {
+            background: #f8f9fa;
+            color: #adb5bd;
+            border: 1px solid #e9ecef;
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .button[href="#"]:hover {
+            background: #f8f9fa;
+            border-color: #e9ecef;
+            color: #adb5bd;
         }
 
         /* Skills */
@@ -468,6 +550,48 @@
             font-size: 1.1em;
         }
 
+        /* Hobbies Section */
+        .hobby-item {
+            margin-bottom: 15px;
+            font-size: 1.15em;
+        }
+
+        .hobby-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .hobby-description {
+            color: #7f8c8d;
+        }
+
+        .hobby-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: #f8f9fa;
+            color: #495057;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .hobby-button:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+            color: #343a40;
+        }
+
+        .hobby-button .emoji {
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+
         /* Footer */
         .footer {
             margin-top: 50px;
@@ -519,6 +643,15 @@
                 width: auto;
                 display: block;
             }
+
+            .pub-buttons {
+                flex-direction: column;
+            }
+
+            .button {
+                justify-content: center;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -566,6 +699,10 @@
                 <div class="news-section">
                     <h3>Latest News</h3>
                     <div class="news-item">
+                        <div class="news-date">Aug 2025</div>
+                        <div class="news-content">Presented our work (my first paper) at <span class="highlight">SOUPS 2025</span>.</div>
+                    </div>
+                    <div class="news-item">
                         <div class="news-date">June 2025</div>
                         <div class="news-content">Starting research position at <span class="highlight">UC Berkeley</span> with Prof. David Wagner on LLM security!</div>
                     </div>
@@ -598,6 +735,7 @@
                 <a href="#education">Education</a>
                 <a href="#publications">Publications</a>
                 <a href="#awards">Awards</a>
+                <a href="#hobbies">Beyond Work</a>
             </nav>
 
             <!-- Self Introduction -->
@@ -660,18 +798,26 @@
 
             <!-- Publications -->
             <section class="section" id="publications">
-                <h2>Publications & Research Papers</h2>
+                <h2>Publications</h2>
                 
                 <div class="publication">
-                    <div class="pub-title">"Defending Against Prompt Injection With a Few DefensiveTokens"</div>
+                    <div class="pub-title">Defending Against Prompt Injection With a Few DefensiveTokens</div>
                     <div class="pub-authors">Sizhe Chen, <span class="my-name">Yizhu Wang</span>, Nicholas Carlini, Chawin Sitawarin, David Wagner.</div>
-                    <div class="pub-venue">ICML Workshop on Reliable and Responsible Foundation Models (<span class="highlight">R2-FM @ ICML</span>), Vancouver, Canada, July 2025</div>
+                    <div class="pub-venue">ACM Workshop on Artificial Intelligence and Security (<span class="highlight">AISec @ CCS</span>), Taiwan, Oct 2025</div>
+                    <div class="pub-buttons">
+                        <a href="https://arxiv.org/pdf/2507.07974" class="button">Paper</a>
+                        <a href="https://github.com/Sizhe-Chen/DefensiveToken" class="button">Code</a>
+                    </div>
                 </div>
                 
                 <div class="publication">
-                    <div class="pub-title">"Can You Walk Me Through It? Explainable SMS Phishing Detection using LLM-based Agents"</div>
+                    <div class="pub-title">Can You Walk Me Through It? Explainable SMS Phishing Detection using LLM-based Agents</div>
                     <div class="pub-authors"><span class="my-name">Yizhu Wang</span>, Haoyu Zhai, Chenkai Wang, Qingying Hao, Nick A. Cohen, Roopa Foulger, Jonathan A. Handler, Gang Wang.</div>
                     <div class="pub-venue">Proceedings of the 21st Symposium on Usable Privacy and Security (<span class="highlight">SOUPS</span>), Seattle, WA, August 2025</div>
+                    <div class="pub-buttons">
+                        <a href="https://www.usenix.org/conference/soups2025/presentation/wang" class="button">Paper</a>
+                        <a href="https://github.com/yizhu-joy/SmishX" class="button">Code</a>
+                    </div>
                 </div>
 
             </section>
@@ -679,7 +825,15 @@
             <!-- Awards and Honors -->
             <section class="section" id="awards">
                 <h2>Awards and Honors</h2>
-                
+
+                <div class="award-item">
+                    <div class="award-details">
+                        <div class="award-title">USENIX student travel grant</div>
+                        <div class="award-institution">USENIX</div>
+                    </div>
+                    <div class="award-date">Aug, 2025</div>
+                </div>
+
                 <div class="award-item">
                     <div class="award-details">
                         <div class="award-title">Tsinghua University Zheng Gang Alumni Scholarship</div>
@@ -729,26 +883,31 @@
                 </div>
             </section>
 
-            <!-- Activities -->
-            <section class="section">
-                <h2>Professional Activities & Teaching</h2>
-                
-                <div class="activity-item">
-                    <div class="activity-title">Teaching Assistant</div>
-                    <div class="activity-org">Synthetical Practice of Electronic System Design, Tsinghua University</div>
-                    <div class="date">Jun. 2023 - Oct. 2023</div>
+            <!-- Beyond Work / Hobbies -->
+            <section class="section" id="hobbies">
+                <h2>Beyond Work</h2>
+                <div class="hobbies-container">
+                    <button class="hobby-button" onclick="showHobbyDetail('badminton')">
+                        <span class="emoji">🏸</span>Badminton
+                    </button>
+                    <button class="hobby-button" onclick="showHobbyDetail('pingpong')">
+                        <span class="emoji">🏓</span>Ping-Pong
+                    </button>
+                    <button class="hobby-button" onclick="showHobbyDetail('climbing')">
+                        <span class="emoji">🧗</span>Climbing
+                    </button>
+                    <button class="hobby-button" onclick="showHobbyDetail('pole')">
+                        <span class="emoji">💃</span>Pole Sport
+                    </button>
                 </div>
-
-                <div class="activity-item">
-                    <div class="activity-title">Vice Minister</div>
-                    <div class="activity-org">Hardware Department of Student Science Association, Tsinghua University</div>
-                    <div class="date">Jun. 2022 - Jun. 2024</div>
+                <div id="hobby-detail" style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-radius: 6px; display: none;">
+                    <p id="hobby-description"></p>
                 </div>
             </section>
 
             <!-- Footer -->
             <footer class="footer">
-                <p>© 2025 Yizhu (Joy) Wang. Last updated: July 2025</p>
+                <p>© 2025 Yizhu (Joy) Wang. Last updated: August 2025</p>
                 <!-- <p>AI Security | Tsinghua University | UC Berkeley | UIUC</p> -->
             </footer>
         </main>
@@ -768,6 +927,22 @@
                 }
             });
         });
+
+        // Hobby detail functionality
+        // function showHobbyDetail(hobby) {
+        //     const detailDiv = document.getElementById('hobby-detail');
+        //     const descriptionP = document.getElementById('hobby-description');
+            
+        //     const descriptions = {
+        //         'badminton': 'A passionate badminton player who enjoys the strategic and athletic aspects of the game. I love the quick reflexes and tactical thinking required in competitive play.',
+        //         'pingpong': 'Love the fast-paced nature and precision required in table tennis. The sport combines physical agility with mental focus, making every match exciting.',
+        //         'climbing': 'Enjoy both indoor and outdoor climbing for the physical challenge and problem-solving aspects. Each route presents a unique puzzle that requires both strength and strategy.',
+        //         'pole': 'Practice pole dancing as a form of artistic expression and physical fitness. It combines strength training with creative movement and dance.'
+        //     };
+            
+        //     descriptionP.textContent = descriptions[hobby];
+        //     detailDiv.style.display = 'block';
+        // }
     </script>
 </body>
 </html>
