@@ -592,6 +592,100 @@
             font-size: 1.1em;
         }
 
+        /* Photo Carousel Styles */
+        .photo-carousel {
+            margin-top: 30px;
+            position: relative;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .carousel-slide img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #333;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .carousel-button:hover {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .carousel-button.prev {
+            left: 10px;
+        }
+
+        .carousel-button.next {
+            right: 10px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .carousel-dot.active {
+            background: #2980b9;
+            transform: scale(1.2);
+        }
+
+        .carousel-dot:hover {
+            background: #7f8c8d;
+        }
+
         /* Footer */
         .footer {
             margin-top: 50px;
@@ -651,6 +745,12 @@
             .button {
                 justify-content: center;
                 text-align: center;
+            }
+
+            .carousel-button {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2em;
             }
         }
     </style>
@@ -741,9 +841,9 @@
             <!-- Self Introduction -->
             <section class="self-intro" id="about">
                 <h2>About Me</h2>
-                <p>I am a senior undergraduate student at <span class="highlight">Tsinghua University</span> majoring in Electronic Engineering. I am interested in developing robust defense mechanisms against emerging AI security threats, particularly in Large Language Model (LLM) security.</p>
+                <p>I am a senior undergraduate student at <span class="highlight">Tsinghua University</span> majoring in Electronic Engineering. My primary research focus is on AI security, particularly developing robust defenses against emerging threats to large language models and AI systems. I am also broadly interested in AI safety, alignment, interpretability, explainability, code generation, and human-AI interaction. </p>
 
-                <p>Currently, I work as a research assistant at <span class="highlight">UC Berkeley</span>, collaborating with <span class="highlight">Sizhe Chen</span> under the guidance of <span class="highlight">Prof. David Wagner</span>. My current project involves building deployable defenses against prompt injection attacks targeting LLMs, focusing on creating practical security solutions for real-world AI systems.</p>
+                <p>I recently completed a research position at <span class="highlight">UC Berkeley</span>, where I collaborated with <span class="highlight">Sizhe Chen</span> under the guidance of <span class="highlight">Prof. David Wagner</span>. During this time, I worked on building deployable defenses against prompt injection attacks targeting LLMs, focusing on creating practical security solutions for real-world AI systems.</p>
 
                 <p>I spent a great time during my six-month research experience at the <span class="highlight">University of Illinois Urbana-Champaign (UIUC)</span>, where I worked on developing anti-phishing LLM agents and exploring human factors in phishing attacks under the supervision of <span class="highlight">Prof. Gang Wang</span>. This work resulted in a publication at SOUPS 2025. Prior to this, I conducted research about intelligent city with <span class="highlight">Prof. Yong Li</span> at <span class="highlight">Tsinghua University</span>.</p>
 
@@ -911,6 +1011,50 @@
                 <div id="hobby-detail" style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-radius: 6px; display: none;">
                     <p id="hobby-description"></p>
                 </div>
+
+                <!-- Photo Carousel -->
+                <div class="photo-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-images" id="carouselImages">
+                            <div class="carousel-slide">
+                                <img src="img/photo1.jpg" alt="Hobby photo 1">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/photo2.jpg" alt="Hobby photo 2">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/photo3.jpg" alt="Hobby photo 3">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/photo6.jpg" alt="Hobby photo 6">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/photo7.jpg" alt="Hobby photo 7">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/photo8.jpg" alt="Hobby photo 8">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/photo9.jpg" alt="Hobby photo 9">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/photo10.jpg" alt="Hobby photo 10">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/photo11.jpg" alt="Hobby photo 11">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/photo12.jpg" alt="Hobby photo 12">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="img/photo13.jpg" alt="Hobby photo 13">
+                            </div>
+                        </div>
+                        <button class="carousel-button prev" onclick="changeSlide(-1)">‹</button>
+                        <button class="carousel-button next" onclick="changeSlide(1)">›</button>
+                    </div>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                </div>
             </section>
 
             <!-- Footer -->
@@ -951,9 +1095,48 @@
         //     descriptionP.textContent = descriptions[hobby];
         //     detailDiv.style.display = 'block';
         // }
+
+        // Photo Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        // Create dots
+        const dotsContainer = document.getElementById('carouselDots');
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'carousel-dot';
+            if (i === 0) dot.classList.add('active');
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        }
+
+        function updateCarousel() {
+            const carouselImages = document.getElementById('carouselImages');
+            carouselImages.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            const dots = document.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
     </script>
 </body>
 
 </html>
-
-
