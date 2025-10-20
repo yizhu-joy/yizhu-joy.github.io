@@ -442,62 +442,25 @@
         }
 
         /* Paper Button - Subtle gray */
-        .button[href*="paper"], .button:first-child {
+        .button[href*="paper"], .button {
             background: #c5ddf6;
             color: #08090a;
             border: 1px solid #dee2e6;
         }
 
-        .button[href*="paper"]:hover, .button:first-child:hover {
+        .button[href*="paper"]:hover, .button:hover {
             background: #97adc2;
             border-color: #adb5bd;
             color: #343a40;
         }
 
-        .button[href*="paper"]::after, .button:first-child::after {
-            content: "📄";
+        .button[href*="paper"]::after, .button::after {
+            content: "";
             margin-left: 8px;
             font-size: 1.1em;
         }
 
-        /* Code Button - Subtle dark gray */
-        .button[href*="code"], .button:last-child {
-            background: #c5ddf6;
-            color: #08090a;
-            border: 1px solid #dee2e6;
-        }
-
-        .button[href*="code"]:hover, .button:last-child:hover {
-            background: #97adc2;
-            border-color: #adb5bd;
-            color: #343a40;
-        }
-
-        .button[href*="code"]::after, .button:last-child::after {
-            content: "⚡";
-            margin-left: 8px;
-            font-size: 1.1em;
-        }
-
-        /* Video Button - Subtle dark gray */
-        .button[href*="code"], .button:last-child {
-            background: #c5ddf6;
-            color: #08090a;
-            border: 1px solid #dee2e6;
-        }
-
-        .button[href*="code"]:hover, .button:last-child:hover {
-            background: #97adc2;
-            border-color: #adb5bd;
-            color: #343a40;
-        }
-
-        .button[href*="code"]::after, .button:last-child::after {
-            content: "🎥";
-            margin-left: 8px;
-            font-size: 1.1em;
-        }
-
+        
         /* Alternative styling for unavailable links */
         .button[href="#"] {
             background: #f8f9fa;
@@ -924,8 +887,8 @@
                     <div class="pub-authors">Sizhe Chen, <span class="my-name">Yizhu Wang</span>, Nicholas Carlini, Chawin Sitawarin, David Wagner.</div>
                     <div class="pub-venue"><span class="highlight">Spotlight </span> ACM Workshop on Artificial Intelligence and Security (<span class="highlight">AISec @ CCS</span>), Taiwan, Oct 2025</div>
                     <div class="pub-buttons">
-                        <a href="https://arxiv.org/pdf/2507.07974" class="button">Paper</a>
-                        <a href="https://github.com/Sizhe-Chen/DefensiveToken" class="button">Code</a>
+                        <a href="https://arxiv.org/pdf/2507.07974" class="button">Paper 📄</a>
+                        <a href="https://github.com/Sizhe-Chen/DefensiveToken" class="button">Code ⚡</a>
                     </div>
                 </div>
                 
@@ -934,11 +897,13 @@
                     <div class="pub-authors"><span class="my-name">Yizhu Wang</span>, Haoyu Zhai, Chenkai Wang, Qingying Hao, Nick A. Cohen, Roopa Foulger, Jonathan A. Handler, Gang Wang.</div>
                     <div class="pub-venue">Proceedings of the 21st Symposium on Usable Privacy and Security (<span class="highlight">SOUPS</span>), Seattle, WA, August 2025</div>
                     <div class="pub-buttons">
-                        <a href="https://www.usenix.org/conference/soups2025/presentation/wang" class="button">Paper</a>
-                        <a href="https://github.com/yizhu-joy/SmishX" class="button">Code</a>
-                        <a href="https://www.youtube.com/watch?v=y5MLs8jpXYo" class="button">Talk</a>
+                        <a href="https://www.usenix.org/conference/soups2025/presentation/wang" class="button">Paper 📄</a>
+                        <a href="https://github.com/yizhu-joy/SmishX" class="button">Code ⚡</a>
+                        <a href="https://www.youtube.com/watch?v=y5MLs8jpXYo" class="button">Video 🎥</a>
                     </div>
                 </div>
+
+                
 
             </section>
 
