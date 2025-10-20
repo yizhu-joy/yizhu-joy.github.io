@@ -479,6 +479,25 @@
             font-size: 1.1em;
         }
 
+        /* Video Button - Subtle dark gray */
+        .button[href*="code"], .button:last-child {
+            background: #c5ddf6;
+            color: #08090a;
+            border: 1px solid #dee2e6;
+        }
+
+        .button[href*="code"]:hover, .button:last-child:hover {
+            background: #97adc2;
+            border-color: #adb5bd;
+            color: #343a40;
+        }
+
+        .button[href*="code"]::after, .button:last-child::after {
+            content: "🎥";
+            margin-left: 8px;
+            font-size: 1.1em;
+        }
+
         /* Alternative styling for unavailable links */
         .button[href="#"] {
             background: #f8f9fa;
@@ -891,7 +910,7 @@
                 <div class="education-item">
                     <div class="degree">Research Assistant - LLM Security</div>
                     <div class="institution"><span class="highlight">University of California Berkeley</span>, CA, USA</div>
-                    <div class="date">June. 2025 - Sep. 2025 (Expected)</div>
+                    <div class="date">June. 2025 - Sep. 2025</div>
                     <div class="advisor">Advisor: <span class="highlight">Prof. David Wagner</span> (Prompt Injection Defense)</div>
                 </div>
             </section>
@@ -917,6 +936,7 @@
                     <div class="pub-buttons">
                         <a href="https://www.usenix.org/conference/soups2025/presentation/wang" class="button">Paper</a>
                         <a href="https://github.com/yizhu-joy/SmishX" class="button">Code</a>
+                        <a href="https://www.youtube.com/watch?v=y5MLs8jpXYo" class="button">Talk</a>
                     </div>
                 </div>
 
@@ -1140,4 +1160,5 @@
 </body>
 
 </html>
+
 
