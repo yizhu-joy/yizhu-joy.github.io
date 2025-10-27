@@ -168,42 +168,6 @@
             text-decoration: underline;
         }
 
-        /* Social Links */
-        .social-links {
-            margin-top: 15px;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none;
-            margin-right: 15px;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-        }
-
-        .social-link:hover {
-            text-decoration: underline;
-        }
-
-        .linkedin-link {
-            color: #0077b5;
-        }
-
-        .linkedin-link::before {
-            content: "💼";
-            margin-right: 8px;
-        }
-
-        .twitter-link {
-            color: #1da1f2;
-        }
-
-        .twitter-link::before {
-            content: "🐦";
-            margin-right: 8px;
-        }
-
         /* News Section */
         .news-section h3 {
             font-size: 1.4em;
@@ -458,6 +422,46 @@
             content: "";
             margin-left: 8px;
             font-size: 1.1em;
+        }
+
+        /* Social buttons (LinkedIn, X, GitHub, Google Scholar) */
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 12px;
+            color: #2c3e50;
+            background: #eaf2fb;
+            border: 1px solid #d6e4f5;
+            border-radius: 999px; /* pill */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: none;
+        }
+
+        .social-btn svg { width: 18px; height: 18px; flex-shrink: 0; fill: currentColor; }
+
+        .social-btn:hover { background: #dbe9f9; border-color: #c5d8f3; color: #1f3b57; }
+
+        /* Unified style for all social buttons */
+        .social-btn.linkedin,
+        .social-btn.x,
+        .social-btn.github,
+        .social-btn.scholar { background: inherit; color: inherit; border-color: inherit; }
+
+        /* Very small screens: stack in one column */
+        @media (max-width: 360px) {
+            .social-links { grid-template-columns: 1fr; }
         }
 
         
@@ -765,13 +769,11 @@
                         <span class="highlight">Tsinghua University</span><br>
                         Beijing, China
                     </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/yizhu-wang-b738242a3/" class="social-link linkedin-link" target="_blank" rel="noopener">
-                            LinkedIn
-                        </a>
-                        <a href="https://x.com/YizhuJoy" class="social-link twitter-link" target="_blank" rel="noopener">
-                            X (Twitter)
-                        </a>
+                    <div class="social-links" aria-label="Social links">
+                        <a class="social-btn linkedin" href="https://www.linkedin.com/in/yizhu-wang-b738242a3/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a>
+                        <a class="social-btn x" href="https://x.com/YizhuJoy" target="_blank" rel="noopener noreferrer" aria-label="X (opens in new tab)">X</a>
+                        <a class="social-btn github" href="https://github.com/yizhu-joy" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)">GitHub</a>
+                        <a class="social-btn scholar" href="https://scholar.google.com/citations?hl=en&user=JYiLA90AAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar (opens in new tab)">Google Scholar</a>
                     </div>
                 </div>
             </div>
@@ -815,6 +817,7 @@
                 <a href="#about">About</a>
                 <!-- <a href="#research">Research</a> -->
                 <a href="#education">Education</a>
+                <a href="#research-experience">Research</a>
                 <a href="#publications">Publications</a>
                 <a href="#awards">Awards</a>
                 <a href="#hobbies">Beyond Work</a>
@@ -853,7 +856,7 @@
 
             <!-- Education -->
             <section class="section" id="education">
-                <h2>Education & Research Experience</h2>
+                <h2>Education</h2>
                 <div class="education-item">
                     <div class="degree">BEng in Electronic Engineering</div>
                     <div class="institution"><span class="highlight">Tsinghua University</span>, Beijing, China</div>
@@ -864,23 +867,39 @@
                     <div class="institution"><span class="highlight">University of British Columbia (UBC)</span>, Vancouver, Canada</div>
                     <div class="date">Sep. 2023 - Dec. 2023</div>
                 </div>
-                <div class="education-item">
-                    <div class="degree">Research Assistant - AI4Security</div>
-                    <div class="institution"><span class="highlight">University of Illinois Urbana-Champaign (UIUC)</span>, IL, USA</div>
-                    <div class="date">Jul. 2024 - Jan. 2025</div>
-                    <div class="advisor">Advisor: <span class="highlight">Prof. Gang Wang</span> (Phishing Detection & LLM Agents)</div>
-                </div>
+            </section>
+
+            <!-- Research Experience-->
+            <section class="section" id="research-experience">
+                <h2>Research Experience</h2>
                 <div class="education-item">
                     <div class="degree">Research Assistant - LLM Security</div>
                     <div class="institution"><span class="highlight">University of California Berkeley</span>, CA, USA</div>
                     <div class="date">June. 2025 - Sep. 2025</div>
                     <div class="advisor">Advisor: <span class="highlight">Prof. David Wagner</span> (Prompt Injection Defense)</div>
                 </div>
+                <div class="education-item">
+                    <div class="degree">Research Assistant - AI4Security</div>
+                    <div class="institution"><span class="highlight">University of Illinois Urbana-Champaign (UIUC)</span>, IL, USA</div>
+                    <div class="date">Jul. 2024 - Jan. 2025</div>
+                    <div class="advisor">Advisor: <span class="highlight">Prof. Gang Wang</span> (Phishing Detection & LLM Agents)</div>
+                </div>
             </section>
 
             <!-- Publications -->
             <section class="section" id="publications">
                 <h2>Publications</h2>
+
+                <div class="publication">
+                    <div class="pub-title">Defending Against Prompt Injection With DataFilter</div>
+                    <div class="pub-authors"><span class="my-name">Yizhu Wang</span>, Sizhe Chen, Raghad Alkhudair, Basel Alomair, David Wagner.</div>
+                    <div class="pub-venue">Preprint: arXiv:2510.19207</div>
+                    <div class="pub-buttons">
+                        <a href="https://arxiv.org/abs/2510.19207" class="button">Paper 📄</a>
+                        <a href="https://github.com/yizhu-joy/DataFilter" class="button">Code ⚡</a>
+                        <a href="https://huggingface.co/JoyYizhu/DataFilter" class="button">Model 🤗</a>
+                    </div>
+                </div>
                 
                 <div class="publication">
                     <div class="pub-title">Defending Against Prompt Injection With a Few DefensiveTokens</div>
@@ -913,7 +932,7 @@
 
                 <div class="award-item">
                     <div class="award-details">
-                        <div class="award-title">Outstanding Technological Innovation</div>
+                        <div class="award-title">Outstanding Technological Innovation (5%)</div>
                         <div class="award-institution">Tsinghua University</div>
                     </div>
                     <div class="award-date">Oct, 2025</div>
@@ -929,7 +948,7 @@
 
                 <div class="award-item">
                     <div class="award-details">
-                        <div class="award-title">Tsinghua University Zheng Gang Alumni Scholarship</div>
+                        <div class="award-title">Tsinghua University Zheng Gang Alumni Scholarship (5%)</div>
                         <div class="award-institution">Tsinghua University, Beijing</div>
                     </div>
                     <div class="award-date">Dec. 2023</div>
@@ -937,7 +956,7 @@
 
                 <div class="award-item">
                     <div class="award-details">
-                        <div class="award-title">Excellent Science and Technology Association Backbone (15/280)</div>
+                        <div class="award-title">Excellent Science and Technology Association Backbone (5%)</div>
                         <div class="award-institution">Tsinghua University, Beijing</div>
                     </div>
                     <div class="award-date">Oct. 2023</div>
@@ -945,7 +964,7 @@
 
                 <div class="award-item">
                     <div class="award-details">
-                        <div class="award-title">Social Work Excellence Award (<10/280)</div>
+                        <div class="award-title">Social Work Excellence Award (<4%)</div>
                         <div class="award-institution">Tsinghua University, Beijing</div>
                     </div>
                     <div class="award-date">Nov. 2022</div>
@@ -953,12 +972,13 @@
 
                 <div class="award-item">
                     <div class="award-details">
-                        <div class="award-title">Freshman Scholarship (<10/280)</div>
+                        <div class="award-title">Freshman Scholarship (<4%)</div>
                         <div class="award-institution">Tsinghua University, Beijing</div>
                     </div>
                     <div class="award-date">Dec. 2021</div>
                 </div>
 
+                <!--
                 <div class="award-item">
                     <div class="award-details">
                         <div class="award-title">No.9 (9/50) in Tsinghua University Electronic Design Competition</div>
@@ -974,6 +994,7 @@
                     </div>
                     <div class="award-date">Dec. 2021</div>
                 </div>
+                -->
             </section>
 
             <!-- Beyond Work / Hobbies -->
