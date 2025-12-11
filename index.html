@@ -250,6 +250,21 @@
             font-size: 1.15em;
         }
 
+        /* Links inside the self-introduction block */
+        .self-intro a {
+            color: #2980b9;              /* same as your .highlight color */
+            text-decoration: none;
+            border-bottom: 1px dotted #2980b9;  /* subtle academic-style underline */
+            font-weight: bold;           /* optional, but matches your highlight vibe */
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .self-intro a:hover {
+            color: #1f6390;
+            border-bottom-style: solid;  /* stronger underline on hover */
+        }
+
+
         /* Sections */
         .section {
             margin-bottom: 40px;
@@ -829,14 +844,14 @@
 
             <!-- Self Introduction -->
             <section class="self-intro" id="about">
-                <h2>About Me</h2>
-                <p>I am a senior undergraduate student at <span class="highlight">Tsinghua University</span> majoring in Electronic Engineering. My primary research focus is on AI security, particularly developing robust defenses against emerging threats to large language models and AI systems. I am also broadly interested in AI safety, alignment, interpretability, explainability, code generation, and human-AI interaction. </p>
+            <p>I am a senior undergraduate student at <span class="highlight">Tsinghua University</span> majoring in Electronic Engineering. My research focuses on AI security, particularly developing robust defenses against emerging threats to AI systems. I am broadly interested in safety and security topics, including hallucination, interpretability, copyright protection, and reliable reasoning.</p>
 
-                <p>I recently completed a research position at <span class="highlight">UC Berkeley</span>, where I collaborated with <span class="highlight">Sizhe Chen</span> under the guidance of <span class="highlight">Prof. David Wagner</span>. During this time, I worked on building deployable defenses against prompt injection attacks targeting LLMs, focusing on creating practical security solutions for real-world AI systems.</p>
+            <p>During Summer 2025, I worked at <span class="highlight">UC Berkeley</span> with <span class="highlight"><a href="https://people.eecs.berkeley.edu/~daw/" target="_blank">Prof. David Wagner</a></span> and PhD student <span class="highlight"><a href="https://sizhe-chen.github.io/" target="_blank">Sizhe Chen</a></span> on defenses against prompt injection attacks. This work led to publications at <span class="highlight">SaTML 2026</span> and <span class="highlight">AISec@CCS 2025</span>.</p>
 
-                <p>I spent a great time during my six-month research experience at the <span class="highlight">University of Illinois Urbana-Champaign (UIUC)</span>, where I worked on developing anti-phishing LLM agents and exploring human factors in phishing attacks under the supervision of <span class="highlight">Prof. Gang Wang</span>. This work resulted in a publication at SOUPS 2025. Prior to this, I conducted research about intelligent city with <span class="highlight">Prof. Yong Li</span> at <span class="highlight">Tsinghua University</span>.</p>
+            <p>Prior to that, I was fortunate to work at <span class="highlight">UIUC</span> with <span class="highlight"><a href="https://gangw.cs.illinois.edu/" target="_blank">Prof. Gang Wang</a></span> on leveraging LLM-based agents for explainable phishing detection, leading to a publication at <span class="highlight">SOUPS 2025</span>.</p>
 
-                <p>I aim to contribute to the development of safer and more trustworthy AI systems for real-world deployment, bridging the gap between theoretical security research and practical applications in cybersecurity.</p>
+            <p><b>I am applying to PhD programs for Fall 2026. Feel free to reach out via email for collaboration or opportunities!</b></p>
+
             </section>
 
             <!-- Research Interests
@@ -880,7 +895,7 @@
                     <div class="degree">Research Assistant - LLM Security</div>
                     <div class="institution"><span class="highlight">University of California Berkeley</span>, CA, USA</div>
                     <div class="date">June. 2025 - Sep. 2025</div>
-                    <div class="advisor">Advisor: <span class="highlight">Prof. David Wagner</span> (Prompt Injection Defense)</div>
+                    <div class="advisor">Advisor: <span class="highlight">Prof. David Wagner</span> and PhD student <span class="highlight">Sizhe Chen</span> (Prompt Injection Defense)</div>
                 </div>
                 <div class="education-item">
                     <div class="degree">Research Assistant - AI4Security</div>
